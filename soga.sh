@@ -4,6 +4,9 @@ cp -f /usr/local/soga/soga@.service  /etc/systemd/system/
 if [ ! "`grep -w auto_out_ip /usr/local/soga/soga.conf`" ];then 
 	echo "auto_out_ip=true" >> /usr/local/soga/soga.conf
 fi
+if [ ! "`grep -w listen= /usr/local/soga/soga.conf`" ];then 
+	echo "listen=" >> /usr/local/soga/soga.conf
+fi
 
 if [[ "$1" =~ "conf="* ]];then
 	for i in $*
@@ -25,4 +28,3 @@ if [[ "$1" =~ "conf="* ]];then
 	systemctl status soga@$conf
 else echo "参数有误"
 fi
-
