@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#107-114行有修改
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
@@ -104,6 +104,12 @@ install_soga() {
     fi
 
     rm soga/ -rf
+    #开启BBR，仅在内核支持下生效
+    sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
+    echo "net.core.default_qdisc = fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
+    sysctl -p
     #先从github下载再解压
     wget --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/soga-linux-amd64.tar.gz
     tar zxvf soga-linux-${arch}.tar.gz
