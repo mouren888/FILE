@@ -105,7 +105,7 @@ install_soga() {
 
     rm soga/ -rf
     #先从github下载再解压
-    wget https://raw.githubusercontent.com/mouren888/FILE/main/soga-linux-amd64.tar.gz
+    wget --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/soga-linux-amd64.tar.gz
     tar zxvf soga-linux-${arch}.tar.gz
     mv soga /usr/local/
     cd /usr/local/soga/
