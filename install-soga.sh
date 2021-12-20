@@ -103,7 +103,7 @@ install_soga() {
         rm /usr/local/soga/ -rf
     fi
 
-    rm soga/ -rf
+    rm -rf /etc/soga
     #开启BBR，仅在内核支持下生效
     sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
     sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
@@ -113,6 +113,7 @@ install_soga() {
     #先从github下载再解压
     wget --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/soga-linux-amd64.tar.gz
     tar zxvf soga-linux-${arch}.tar.gz
+    rm soga-linux-amd64.tar.gz -f
     mv soga /usr/local/
     cd /usr/local/soga/
     chmod +x soga
