@@ -60,8 +60,8 @@ clear
 echo "旧环境清理完毕！"
 echo ""
 echo "安装Socks5所依赖的组件,请稍等..."
-apt -y install gcc gcc-c++ automake make pam-devel openldap-devel cyrus-sasl-devel openssl-devel
-apt update -y nss curl libcurl 
+yum -y install gcc gcc-c++ automake make pam-devel openldap-devel cyrus-sasl-devel openssl-devel
+yum update -y nss curl libcurl 
 
 #配置环境变量
 sed -i '$a export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin' ~/.bash_profile
