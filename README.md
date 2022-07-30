@@ -7,10 +7,13 @@ bash <(curl -Ls https://github.com/mouren888/FILE/raw/main/soga .sh) conf=1 node
 
 
 bash <(curl -Ls https://raw.githubusercontent.com/mouren888/FILE/main/install-soga.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/mouren888/FILE/main/install-soga-2.sh)
 
-```
 wget -q -N --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/install.sh&& bash install.sh
 wget https://github.com/mouren888/FILE/raw/main/speedtest && chmod +x speedtest && ./speedtest
+
+```
+
 
 
 
