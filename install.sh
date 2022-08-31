@@ -99,6 +99,12 @@ check_status() {
 install_acme() {
     curl https://get.acme.sh | sh
 }
+    #开启BBR，仅在内核支持下生效
+    sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
+    echo "net.core.default_qdisc = fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
+    sysctl -p
 
 install_XrayR() {
     if [[ -e /usr/local/XrayR/ ]]; then
@@ -126,7 +132,7 @@ install_XrayR() {
 	else
 	    last_version="v"$1
 	fi
-        url="https://github.com/XrayR-project/XrayR/releases/download/${last_version}/XrayR-linux-${arch}.zip"
+        url="https://github.com/mouren888/FILE/raw/main/XrayR-linux-64.zip"
         echo -e "开始安装 XrayR ${last_version}"
         wget -q -N --no-check-certificate -O /usr/local/XrayR/XrayR-linux.zip ${url}
         if [[ $? -ne 0 ]]; then
