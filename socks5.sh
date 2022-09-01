@@ -193,9 +193,8 @@ echo ""
 echo "输入"s5"启动Socks5控制面板"
 echo ""
 IP=$(curl http://ip.sb)
-IP: $IP
 echo "IP: $IP"
-echo "用户名: "${uname}
+echo "账户: "${uname}
 echo "密码  : "${upasswd}
 echo "端口  : "${port}
 echo ""
