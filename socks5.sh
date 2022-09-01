@@ -192,7 +192,8 @@ echo "Socks5安装完毕！"
 echo ""
 echo "输入"s5"启动Socks5控制面板"
 echo ""
-IP=$(curl http://ip.sb)
+echo ""
+IP=$(curl ipv4.ip.sb )
 echo "地址: $IP"
 echo "账户: "${uname}
 echo "密码  : "${upasswd}
