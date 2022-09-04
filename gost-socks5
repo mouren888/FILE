@@ -7,10 +7,12 @@ yellow='\033[0;33m'
 plain='\033[0m'
 
 #删除gost相关项
+  cd
   rm -rf "$(pwd)"/gost
   rm -rf "$(pwd)"/gost.service
   rm -rf "$(pwd)"/config.json
   rm -rf /etc/gost
+  rm -rf "$(pwd)"/gost.json
   rm -rf /usr/lib/systemd/system/gost.service
   rm -rf /etc/systemd/system/gost.service
   rm -rf /usr/bin/gost
@@ -38,20 +40,23 @@ gunzip -f gost-linux-amd64-2.11.4.gz
 #重命名为gost
 mv gost-linux-amd64-2.11.4 gost
 
-#设置文件权限
-chmod 777 /usr/bin/gost
-
 #移动gost到系统变量
 mv gost /usr/bin
 
-#下载gost.service
-wget --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/gost.service
+#设置文件权限
+chmod 777 /usr/bin/gost
+
+#下载service到/etc/systemd/system
+wget -P /etc/systemd/system --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/gost.service
 
 #设置文件权限
-chmod 777 gost.service
+chmod 777 /etc/systemd/system/gost.service
 
-#移动gost.service到/etc/systemd/system
-mv gost.service /etc/systemd/system
+#下载配置文件到root
+wget -P /root --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/gost.json
+
+设置文件权限
+chmod 777 /root/gost.json
 
 #设置开机自启
 systemctl enable gost 
