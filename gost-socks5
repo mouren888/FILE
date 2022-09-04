@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#设置字体颜色变量
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+plain='\033[0m'
+
+#删除gost相关项
+  rm -rf "$(pwd)"/gost
+  rm -rf "$(pwd)"/gost.service
+  rm -rf "$(pwd)"/config.json
+  rm -rf /etc/gost
+  rm -rf /usr/lib/systemd/system/gost.service
+  rm -rf /etc/systemd/system/gost.service
+  rm -rf /usr/bin/gost
+  
+#开启bbr
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+
+#更新apt
+apt update
+
+#下载wget curl vim
+apt install wget curl vim -y
+IP=$(curl http://ip.sb)
+
+#下载gost
+wget --no-check-certificate https://github.com/ginuerzh/gost/releases/download/v2.11.4/gost-linux-amd64-2.11.4.gz
+
+#解压gost
+gunzip gost-linux-amd64-2.11.4.gz
+
+#重命名为gost
+mv gost-linux-amd64-2.11.4 gost
+
+#设置文件权限
+chmod 777 /usr/bin/gost
+
+#移动gost到系统变量
+mv gost /usr/bin
+
+#下载gost.service
+wget https://raw.githubusercontent.com/mouren888/FILE/main/gost.service
+
+#设置文件权限
+chmod 777 gost.service
+
+#移动gost.service到/usr/lib/systemd/system
+mv gost.service /etc/systemd/system
+
+#设置开机自启
+systemctl enable gost 
+
+#启动服务
+systemctl start gost 
+
+echo -e "${green}gost v2.11.4 安装完成，已设置开机自启${plain}"
+echo ""
+echo -e "${green}gost 重启成功${plain}"
+echo ""
+echo "soga 管理脚本使用方法: "
+echo "------------------------------------------"
+echo "systemctl start gost         - 启动 gost"
+echo "systemctl stop gost          - 停止 gost"
+echo "systemctl restart gost       - 重启 gost"
+echo "systemctl status gost        - 查看 gost 状态"
+echo "systemctl enable gost        - 设置 gost 开机自启"
+echo "systemctl disable gost       - 取消 gost 开机自启"
+echo "--------------------------------------------------"
+
+echo ""
+echo ""
+echo -e "${green}Socks5${plain}"
+echo -e "${green}IP: $IP${plain}"
+echo -e "${green}端口：54321${plain}"
+echo -e "${green}账户：admin${plain}"
+echo -e "${green}密码：admin${plain}"
+echo ""
