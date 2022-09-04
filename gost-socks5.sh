@@ -55,7 +55,7 @@ chmod 777 /etc/systemd/system/gost.service
 #下载配置文件到root
 wget -P /root --no-check-certificate https://raw.githubusercontent.com/mouren888/FILE/main/gost.json
 
-设置文件权限
+#设置文件权限
 chmod 777 /root/gost.json
 
 #设置开机自启
