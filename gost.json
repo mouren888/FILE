@@ -1,0 +1,7 @@
+{
+    "Debug": true,
+    "Retries": 0,
+    "ServeNodes": [
+        "socks5://123:123@:12546"
+    ]
+}
