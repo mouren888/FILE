@@ -62,7 +62,7 @@ chmod 777 /root/gost.json
 systemctl enable gost 
 
 #启动服务
-systemctl start gost 
+systemctl restart gost 
 
 echo -e "${green}gost v2.11.4 安装完成，已设置开机自启${plain}"
 echo ""
