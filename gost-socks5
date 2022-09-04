@@ -25,13 +25,15 @@ apt update
 
 #下载wget curl vim
 apt install wget curl vim -y
-IP=$(curl http://ip.sb)
+
+#自定义变量
+IP=$(curl ipv4.ip.sb)
 
 #下载gost
 wget --no-check-certificate https://github.com/ginuerzh/gost/releases/download/v2.11.4/gost-linux-amd64-2.11.4.gz
 
 #解压gost
-gunzip gost-linux-amd64-2.11.4.gz
+gunzip -f gost-linux-amd64-2.11.4.gz
 
 #重命名为gost
 mv gost-linux-amd64-2.11.4 gost
