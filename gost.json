@@ -2,6 +2,6 @@
     "Debug": true,
     "Retries": 0,
     "ServeNodes": [
-        "socks5://admin:admin@:54321"
+        "socks5://mouen:mouren@:54321"
     ]
 }
