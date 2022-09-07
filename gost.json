@@ -1,7 +1,17 @@
 {
     "Debug": true,
     "Retries": 0,
-    "ServeNodes": [
-        "socks5://mouren:mouren@:6666"
-    ]
+    "Routes": [
+        {
+            "ServeNodes": [
+               "socks5://mouren:mouren@:6666"
+            ]
+
+        },
+#        {
+#            "ServeNodes": [
+#                ""socks5://mouren:mouren@:6666"
+#            ]
+#        },
+   ]
 }
