@@ -2,7 +2,7 @@
 After=rc-local.service
 [Service]
 Type=simple
-ExecStart=/usr/bin/gost -C /root/socks5.json
+ExecStart=/usr/bin/gost -C /root/gost.json
 Restart=always
 LimitNOFILE=51200
 #每10秒尝试重启服务
