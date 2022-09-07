@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#设置字体颜色变量
+#设置字体颜色
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
 
-#删除gost相关项
+#删除相关项
   cd
   rm -rf "$(pwd)"/gost
   rm -rf "$(pwd)"/gost.service
@@ -23,10 +23,10 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p
 
 #更新apt
-apt update
+apt update -y
 
-#下载wget curl vim
-apt install wget curl vim -y
+#apt安装
+apt-get install sudo wget curl vim iptables -y
 
 #自定义变量
 IP=$(curl ipv4.ip.sb)
