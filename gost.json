@@ -1,32 +1,16 @@
 {
     "Debug": true,
-    "Retries": 0,
-    "Routes": [
-        {
-            "ServeNodes": [
-               "socks5://mouren:mouren@:6666"
-            ]
-
-        }
-
-   ]
+    "Routes":
+	[
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},	
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0,  "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}
+	]
 }
-
-#多IP出口配置
-#{
-#    "Debug": true,
-#    "Retries": 0,
-#    "Routes": [
-#        {
-#            "ServeNodes": [
-#               "socks5://mouren:mouren@:6666"
-#            ]
-#
-#       },
-#       {
-#            "ServeNodes": [
-#               ""socks5://mouren:mouren@:6666"
-#            ]
-#       },
-#   ]
-#}
