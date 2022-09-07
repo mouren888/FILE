@@ -1,0 +1,18 @@
+{
+    "Debug": true,
+    "Routes":
+	[
+	{"Retries": 0, "ServeNodes":[":1001"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0, "ServeNodes":[":1002"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},
+	{"Retries": 0, "ServeNodes":[":1003"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0, "ServeNodes":[":1004"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},	
+	{"Retries": 0, "ServeNodes":[":1005"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0, "ServeNodes":[":1006"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},
+	{"Retries": 0, "ServeNodes":[":1007"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0, "ServeNodes":[":1008"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]},
+	{"Retries": 0, "ServeNodes":[":1009"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}, 
+	{"Retries": 0, "ServeNodes":[":1010"] , "ChainNodes":["socks://mouren:mouren@13.125.208.74:6666"]}
+	]
+}
+
+#"Routes":[ ]中间不要有逗号，否则不生效 （最后一条规则末尾不加,）
