@@ -7,11 +7,26 @@
                "socks5://mouren:mouren@:6666"
             ]
 
-        },
-#        {
-#            "ServeNodes": [
-#                ""socks5://mouren:mouren@:6666"
-#            ]
-#        },
+        }
+
    ]
 }
+
+#多IP出口配置
+#{
+#    "Debug": true,
+#    "Retries": 0,
+#    "Routes": [
+#        {
+#            "ServeNodes": [
+#               "socks5://mouren:mouren@:6666"
+#            ]
+#
+#        },
+#       {
+#            "ServeNodes": [
+#               ""socks5://mouren:mouren@:6666"
+#            ]
+#        },
+#   ]
+#}
