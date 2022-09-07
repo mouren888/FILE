@@ -10,12 +10,12 @@ plain='\033[0m'
   cd
   rm -rf "$(pwd)"/gost
   rm -rf "$(pwd)"/gost.service
-  rm -rf "$(pwd)"/config.json
-  rm -rf /etc/gost
   rm -rf "$(pwd)"/gost.json
+  rm -rf "$(pwd)"/config.json
+  rm -rf /usr/bin/gost  
+  rm -rf /etc/systemd/system/gost.service  
+  rm -rf /etc/gost
   rm -rf /usr/lib/systemd/system/gost.service
-  rm -rf /etc/systemd/system/gost.service
-  rm -rf /usr/bin/gost
   
 #开启bbr
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
