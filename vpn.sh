@@ -23,7 +23,7 @@
 # - All values MUST be placed inside 'single quotes'
 # - DO NOT use these special characters within values: \ " '
 
-YOUR_IPSEC_PSK='mourenroot'
+YOUR_IPSEC_PSK='mourenpsk'
 YOUR_USERNAME='mouren'
 YOUR_PASSWORD='mouren'
 
