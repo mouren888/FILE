@@ -7,6 +7,10 @@ plain='\033[0m'
 
 IP=$(curl ipv4.ip.sb)
 
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+
 if [ `id -u` -ne 0 ] 
 then
   echo "please run it by root"
@@ -44,12 +48,6 @@ localip 192.168.2.1
 remoteip 192.168.2.10-100
 END
 
-cat >> /etc/sysctl.conf <<END
-net.ipv4.ip_forward=1
-END
-
-sysctl -p
-
 iptables-save > /etc/iptables.down.rules
 
 iptables -t nat -A POSTROUTING -s 192.168.2.0/24 -o eth0 -j MASQUERADE
@@ -69,8 +67,16 @@ END
 
 service pptpd restart
 
-netstat -lntp
-
+echo -e "${green}pptp 安装完成，已设置开机自启${plain}"
+echo ""
+echo -e "${green}pptp 重启成功${plain}"
+echo ""
+echo "pptp 管理脚本使用方法: "
+echo "------------------------------------------"
+echo "service pptpd start         - 启动 pptp"
+echo "service pptpd stop          - 停止 pptp"
+echo "service pptpd restart       - 重启 pptp"
+echo "--------------------------------------------------"
 
 echo ""
 echo ""
