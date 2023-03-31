@@ -7,11 +7,6 @@ plain='\033[0m'
 
 IP=$(curl ipv4.ip.sb)
 
-#开启bbr
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-sysctl -p
-
 if [ `id -u` -ne 0 ] 
 then
   echo "please run it by root"
@@ -76,8 +71,6 @@ service pptpd restart
 
 netstat -lntp
 
-exit 0
-
 
 echo ""
 echo ""
@@ -86,3 +79,5 @@ echo -e "${green}IP: $IP${plain}"
 echo -e "${green}账户：mouren${plain}"
 echo -e "${green}密码：mouren${plain}"
 echo ""
+
+exit 0
