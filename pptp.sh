@@ -4,12 +4,7 @@ red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
-
 IP=$(curl ipv4.ip.sb)
-
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-sysctl -p
 
 if [ `id -u` -ne 0 ] 
 then
@@ -48,6 +43,12 @@ localip 192.168.2.1
 remoteip 192.168.2.10-100
 END
 
+cat >> /etc/sysctl.conf <<END
+net.ipv4.ip_forward=1
+END
+
+sysctl -p
+
 iptables-save > /etc/iptables.down.rules
 
 iptables -t nat -A POSTROUTING -s 192.168.2.0/24 -o eth0 -j MASQUERADE
@@ -66,6 +67,8 @@ mouren pptpd mouren *
 END
 
 service pptpd restart
+
+netstat -lntp
 
 echo -e "${green}pptp 安装完成，已设置开机自启${plain}"
 echo ""
