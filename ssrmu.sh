@@ -291,7 +291,7 @@ ssr_link_qr(){
 	SSRbase64=$(urlsafe_base64 "${ip}:${port}:${SSRprotocol}:${method}:${SSRobfs}:${SSRPWDbase64}")
 	SSRurl="ssr://${SSRbase64}"
 	SSRQRcode="http://kistom.com/qr/index.html?q=${SSRurl}"
-	ssr_link=" SSR   链接 : ${Red_font_prefix}${SSRurl}${Font_color_suffix} \n SSR 二维码 : ${Red_font_prefix}${SSRQRcode}${Font_color_suffix} \n echo '$SSRQRcode' | qrencode -o - -t UTF8"
+	ssr_link=" SSR   链接 : ${Red_font_prefix}${SSRurl}${Font_color_suffix} \n SSR 二维码 : ${Red_font_prefix}${SSRQRcode}${Font_color_suffix} \n "
 }
 ss_ssr_determine(){
 	protocol_suffix=`echo ${protocol} | awk -F "_" '{print $NF}'`
@@ -370,7 +370,8 @@ View_User_info(){
  在浏览器中，打开二维码链接，就可以看到二维码图片。
  协议和混淆后面的[ _compatible ]，指的是 兼容原版协议/混淆。"
 	echo && echo "==================================================="
-	echo '$SSRQRcode' | qrencode -o - -t UTF8
+	echo "http://kistom.com/qr/index.html?q=${SSRurl}" | qrencode -o - -t UTF8
+	
 }
 # 设置 配置信息
 Set_config_user(){
