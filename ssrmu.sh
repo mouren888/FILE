@@ -365,12 +365,12 @@ View_User_info(){
 	echo -e " 用户总流量 : ${Green_font_prefix}${transfer_enable} ${Font_color_suffix}"
 	echo -e "${ss_link}"
 	echo -e "${ssr_link}"
-	echo '$SSRQRcode' | qrencode -o - -t UTF8
 	echo -e " ${Green_font_prefix} 提示: ${Font_color_suffix}
 	
  在浏览器中，打开二维码链接，就可以看到二维码图片。
  协议和混淆后面的[ _compatible ]，指的是 兼容原版协议/混淆。"
 	echo && echo "==================================================="
+	echo '$SSRQRcode' | qrencode -o - -t UTF8
 }
 # 设置 配置信息
 Set_config_user(){
