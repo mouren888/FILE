@@ -7,7 +7,6 @@ export PATH
 #	Description: Install the ShadowsocksR mudbjson server
 #	Version: 1.0.26
 #	Author: Toyo
-#	Blog: https://doub.io/ss-jc60/
 #=================================================
 
 sh_ver="1.0.26"
@@ -934,7 +933,12 @@ Installation_dependency(){
 Install_SSR(){
 	check_root
 	[[ -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR 文件夹已存在，请检查( 如安装失败或者存在旧版本，请先卸载 ) !" && exit 1
+	echo -e "${Info} 开始安装 qrencode..."
 	sudo apt install qrencode -y
+	echo -e "${Info} 开启 BBR..."
+	echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+	echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+	sysctl -p
 	echo -e "${Info} 开始设置 ShadowsocksR账号配置..."
 	Set_user_api_server_pub_addr
 	Set_config_all
