@@ -291,7 +291,7 @@ ssr_link_qr(){
 	SSRbase64=$(urlsafe_base64 "${ip}:${port}:${SSRprotocol}:${method}:${SSRobfs}:${SSRPWDbase64}")
 	SSRurl="ssr://${SSRbase64}"
 	SSRQRcode="http://kistom.com/qr/index.html?q=${SSRurl}"
-	QQ=#QQ505213941
+	QQ=#MouRen
 	ssr_link=" SSR   链接 : ${Red_font_prefix}${SSRurl}${QQ}${Font_color_suffix} \n SSR 二维码 : ${Red_font_prefix}${SSRQRcode}${Font_color_suffix} \n "
 }
 ss_ssr_determine(){
