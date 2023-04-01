@@ -288,7 +288,7 @@ ssr_link_qr(){
 	SSRprotocol=$(echo ${protocol} | sed 's/_compatible//g')
 	SSRobfs=$(echo ${obfs} | sed 's/_compatible//g')
 	SSRPWDbase64=$(urlsafe_base64 "${password}")
-	SSRbase64=$(urlsafe_base64 "${ip}:${port}:${SSRprotocol}:${method}:${SSRobfs}:${SSRPWDbase64}")
+	SSRbase64=$(urlsafe_base64 "${ip}:${port}:${SSRprotocol}:${method}:${SSRobfs}:${SSRPWDbase64}:QQ505213941")
 	SSRurl="ssr://${SSRbase64}"
 	SSRQRcode="http://kistom.com/qr/index.html?q=${SSRurl}"
 	ssr_link=" SSR   链接 : ${Red_font_prefix}${SSRurl}${Font_color_suffix} \n SSR 二维码 : ${Red_font_prefix}${SSRQRcode}${Font_color_suffix} \n "
