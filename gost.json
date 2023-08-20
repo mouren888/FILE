@@ -2,8 +2,9 @@
     "Debug": true,
     "Routes": 
 	    [
-        {"Retries": 0, "ServeNodes": ["socks5://mouren:mouren@:6666"]}
-        ]
+        {"Retries": 0, "ServeNodes": ["socks5://mouren:mouren@:6666"]},
+	{"Retries": 0, "ServeNodes": ["socks5://:8888"]}
+	    ]
 }
 
 
