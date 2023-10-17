@@ -4,8 +4,8 @@ echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p
 #下载证书到/etc
-wget --no-check-certificate https://raw.githubusercontent.com/GouGoGoal/backend/xrayr/cert.pem -O /etc/cert.pem
-wget --no-check-certificate https://raw.githubusercontent.com/GouGoGoal/backend/xrayr/key.pem -O /etc/key.pem
+#wget --no-check-certificate https://raw.githubusercontent.com/GouGoGoal/backend/xrayr/cert.pem -O /etc/cert.pem
+#wget --no-check-certificate https://raw.githubusercontent.com/GouGoGoal/backend/xrayr/key.pem -O /etc/key.pem
 #安装XrayR
 bash <(curl -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh)
 #下载配置文件config.yml到/etc/XrayR/config.yml
